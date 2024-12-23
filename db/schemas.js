@@ -1,4 +1,20 @@
-import mongoose from "mongoose";
+const  { mongoose } = require("mongoose") ;
+
+const  { connect } = require("mongoose") ;
+const  { config } = require("dotenv") ;
+
+config();
+
+const connectDB = async () => {
+  try {
+    await connect(process.env.mongo_url);
+    console.log("Database connected");
+  } catch (error) {
+    console.log(error, "Error connecting to database");
+  }
+};
+
+connectDB();
 
 // User schema
 const userSchema = new mongoose.Schema({
@@ -36,4 +52,4 @@ const socialSchema = new mongoose.Schema({
 // Social model
 const Social = mongoose.model("Social", socialSchema);
 
-export { User, Social };
+module.exports= { User, Social };
