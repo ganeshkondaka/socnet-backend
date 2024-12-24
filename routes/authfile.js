@@ -4,6 +4,11 @@ const Signupcont = async (req, res) => {
   // const username=req.body.username;
   const username = req.body.username;
   const password = req.body.password;
+  const existed = await User.findOne({username})
+  if(existed){
+    console.log("user already exists with this username")
+    return res.status(400).json({message:"user already exists with this username"})
+  }
   try {
     const new_user = await User.create({ username, password });
     return res.status(200).json({ message: "new user created", new_user });
