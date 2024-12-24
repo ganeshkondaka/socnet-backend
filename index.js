@@ -1,7 +1,7 @@
 const express = require("express");
 
 const cors = require("cors");
-const { Signincont, Signupcont } = require("./routes/authfile");
+const {  Signupcont } = require("./routes/authfile");
 const { data, getsocials } = require("./routes/data");
 // const { Signincont, Signupcont } = require("./routes/authfile");
 const app = express();
@@ -14,7 +14,6 @@ app.get("/", (req, res) => {
 });
 
 app.post("/signup", Signupcont);
-app.post("/signin", Signincont);
 app.post("/data", data);
 app.get("/getsocials/:username", getsocials);
 
