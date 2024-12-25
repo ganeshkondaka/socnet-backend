@@ -16,7 +16,7 @@ const data = async (req, res) => {
 const getsocials = async (req, res) => {
   const username = req.params["username"];
   try {
-     // Find the user by username
+    //  Find the user by username
      const user = await User.findOne({ username });
      if (!user) {
        return res.status(404).json({ message: "User not found" });
@@ -24,7 +24,7 @@ const getsocials = async (req, res) => {
 
     const usersocials = await Social.find({ user: user._id });
     console.log("data found", usersocials);
-    return res.status(200).json({ message: "data found", usersocials });
+    return res.status(200).json({ message: "user socials", usersocials });
   } catch (error) {
     console.log("error while finding data", error);
     return res.status(500).json({ message: "error while finding socials data" });
