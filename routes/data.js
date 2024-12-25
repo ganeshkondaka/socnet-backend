@@ -2,10 +2,10 @@ const { Social, User } = require("../db/schemas");
 
 const data = async (req, res) => {
   const data = await req.body;
-  console.log("data is :", data);
+  // console.log("data is :", data);
   try {
     const newdata = await Social.create(data);
-    console.log("new data created", newdata);
+    // console.log("new data created", newdata);
     res.status(200).json({ message: "new data created", newdata });
   } catch (error) {
     console.log("error while creating new data", error);
@@ -23,7 +23,7 @@ const getsocials = async (req, res) => {
      }
 
     const usersocials = await Social.find({ user: user._id });
-    console.log("data found", usersocials);
+    // console.log("data found", usersocials);
     return res.status(200).json({ message: "user socials", usersocials });
   } catch (error) {
     console.log("error while finding data", error);

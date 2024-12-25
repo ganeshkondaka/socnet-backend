@@ -18,5 +18,5 @@ app.post("/data", data);
 app.get("/getsocials/:username", getsocials);
 
 app.listen(3000, () => {
-  console.log("app is running on port 300");
+  console.log("app is running on port 3000");
 });
